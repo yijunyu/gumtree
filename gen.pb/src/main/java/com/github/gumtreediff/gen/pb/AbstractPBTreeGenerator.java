@@ -79,6 +79,7 @@ public class AbstractPBTreeGenerator extends TreeGenerator {
                 context.setRoot(t);
             else
                 t.setParentAndUpdateChildren(trees.peek());
+	    ActionsIoUtils.pb_mappings.put(t, element);
             if (element.getChildCount() > 0) {
                 trees.push(t);
                 for (fast.Fast.Element child : element.getChildList())

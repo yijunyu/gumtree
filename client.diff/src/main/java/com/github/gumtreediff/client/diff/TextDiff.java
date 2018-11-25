@@ -40,7 +40,10 @@ public class TextDiff extends AbstractDiffClient<TextDiff.Options> {
 
     public TextDiff(String[] args) {
         super(args);
-
+	if (args.length > 1) {
+		ActionsIoUtils.src_path = args[0];
+		ActionsIoUtils.dst_path = args[1];
+	}
         if (opts.format == null) {
             opts.format = OutputFormat.TEXT;
             if (opts.output != null) {

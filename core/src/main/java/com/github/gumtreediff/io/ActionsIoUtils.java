@@ -111,6 +111,7 @@ public final class ActionsIoUtils {
 		id = 1;
 		map.clear();
 		pbToMapOne(map, element.toBuilder());
+	        // System.out.println("=== PB -> Map ====");
 	}
 
         @Override
@@ -159,7 +160,10 @@ public final class ActionsIoUtils {
             fmt.startOutput();
 
 	    fast.Fast.Delta.Builder delta = fast.Fast.Delta.newBuilder();
-	    System.out.println("Filename = " + filename); 
+	    if (filename == null)
+		filename = src_path;
+	    if (dst_filename == null)
+		dst_filename = dst_path;
 	    delta.setSrc(filename);
 	    delta.setDst(dst_filename);
 
@@ -337,9 +341,9 @@ public final class ActionsIoUtils {
                         fmt.insertAction(src, dst.getParent(), dst.getParent().getChildPosition(dst));
 		    }
 		    if (s_root != null && pb_mappings.get(s_root)!= null) {
-                fast.Fast.Element.Builder eb_root = pb_mappings.get(s_root).toBuilder();
-                eb_root.addChild(eb_dst);
-            }
+			fast.Fast.Element.Builder eb_root = pb_mappings.get(s_root).toBuilder();
+			eb_root.addChild(eb_dst);
+		    }
                 } else if (a instanceof Delete) {
                     fast.Fast.Element e_src = pb_mappings.get(src);
                     fast.Fast.Element.Builder eb_src = e_src.toBuilder();

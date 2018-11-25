@@ -12,5 +12,5 @@ fi
 cp gen.pb/build/libs/gen.pb-2.1.0-SNAPSHOT.jar $gumtree/lib/
 fast Hello1.java Hello1.pb
 fast Hello2.java Hello2.pb
-$gumtree/bin/gumtree webdiff Hello1.pb Hello2.pb
+$gumtree/bin/gumtree diff Hello1.pb Hello2.pb
 cd - > /dev/null
