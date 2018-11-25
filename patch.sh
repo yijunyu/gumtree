@@ -6,7 +6,8 @@ if [ ! -d gen.antlr3-smali ]; then
 	gradle build -x test -x checkstyleMain
 fi
 gradle build -x test -x checkstyleMain
-unzip -o dist/build/distributions/gumtree-20170617-2.1.0-SNAPSHOT.zip
-sudo cp -r gumtree-20170617-2.1.0-SNAPSHOT/* /usr/local/
-sudo cp gumtree /usr/local/bin
-gumtree diff DuplicateVirtualMethods.smali DuplicateVirtualMethods.smali 
+gumtree=gumtree-$(date '+%Y%m%d')-2.1.0-SNAPSHOT
+unzip -o dist/build/distributions/$gumtree.zip
+#sudo cp -r $gumtree/* /usr/local/
+#sudo cp gumtree /usr/local/bin
+#gumtree diff DuplicateVirtualMethods.smali DuplicateVirtualMethods.smali 

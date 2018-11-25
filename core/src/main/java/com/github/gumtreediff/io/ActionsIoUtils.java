@@ -46,6 +46,8 @@ public final class ActionsIoUtils {
     }
 
     public static Map<ITree, fast.Fast.Element> pb_mappings = new HashMap<ITree, fast.Fast.Element>();
+    public static String src_path;
+    public static String dst_path;
     public static ActionSerializer toText(TreeContext sctx, List<Action> actions,
                                           MappingStore mappings) throws IOException {
         return new ActionSerializer(sctx, mappings, actions) {
@@ -157,6 +159,7 @@ public final class ActionsIoUtils {
             fmt.startOutput();
 
 	    fast.Fast.Delta.Builder delta = fast.Fast.Delta.newBuilder();
+	    System.out.println("Filename = " + filename); 
 	    delta.setSrc(filename);
 	    delta.setDst(dst_filename);
 

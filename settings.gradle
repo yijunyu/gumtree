@@ -16,4 +16,5 @@ include 'benchmark',
         'gen.js',
         'gen.ruby',
         'gen.srcml',
-        'gen.pb'
+        'gen.pb',
+        'gen.fbs'
