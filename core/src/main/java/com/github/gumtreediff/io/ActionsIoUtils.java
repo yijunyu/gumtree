@@ -129,7 +129,6 @@ public final class ActionsIoUtils {
 		    unit = pb_mappings.get(context.root);
 		    if (unit.getUnit()!=null) {
 			filename = unit.getUnit().getFilename() + ".pb";
-			delta_filename = unit.getUnit().getFilename() + "-diff.pb";
 			fast.Fast.Data.Builder data_element = fast.Fast.Data.newBuilder();
 			if (unit!=null) data_element.setElement(unit);
 			if (filename!=null) {
@@ -142,6 +141,11 @@ public final class ActionsIoUtils {
 		    ITree dst = mappings.getDst(context.root);
 		    if (dst!=null) {
 			    dst_unit = pb_mappings.get(dst);
+			    String basename = dst_unit.getUnit().getFilename();
+			    if (basename.contains("/")) {
+				    basename = basename.substring(basename.lastIndexOf("/") + 1);
+			    }
+			    delta_filename = unit.getUnit().getFilename() + "=" + basename + "-diff.pb";
 			    if (dst_unit.getUnit()!=null) {
 				dst_filename = dst_unit.getUnit().getFilename() + ".pb";
 				fast.Fast.Data.Builder data_element = fast.Fast.Data.newBuilder();
