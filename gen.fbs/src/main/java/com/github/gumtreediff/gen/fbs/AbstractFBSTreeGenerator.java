@@ -24,9 +24,9 @@ import com.github.gumtreediff.tree.TreeContext;
 import com.github.gumtreediff.gen.Register;
 import com.github.gumtreediff.io.ActionsIoUtils;
 
-import _fast.Data;
-import _fast.Element;
-import _fast._Element.Kind;
+import fast_.Data;
+import fast_.Element;
+import fast_.Element_.Kind;
 
 @Register(id = "flatbuffers", accept = "\\.fbs")
 public class AbstractFBSTreeGenerator extends TreeGenerator {
@@ -80,9 +80,9 @@ public class AbstractFBSTreeGenerator extends TreeGenerator {
     }
 
     @SuppressWarnings("unchecked")
-    protected void buildTree(TreeContext context, _fast.Element element) throws Exception {
+    protected void buildTree(TreeContext context, fast_.Element element) throws Exception {
             int type = element.type().kind();
-            String tokenName = _fast._Element.Kind.name(type);
+            String tokenName = fast_.Element_.Kind.name(type);
 	    String text = element.text();
 	    String tail = element.tail();
 	    int length = text!=null? text.length() : 0;
