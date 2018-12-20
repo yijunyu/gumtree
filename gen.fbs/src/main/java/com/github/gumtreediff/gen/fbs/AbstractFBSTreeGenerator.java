@@ -26,7 +26,7 @@ import com.github.gumtreediff.io.ActionsIoUtils;
 
 import fast_.Data;
 import fast_.Element;
-import fast_.Element_.Kind;
+import fast_.SrcmlKind;
 
 @Register(id = "flatbuffers", accept = "\\.fbs")
 public class AbstractFBSTreeGenerator extends TreeGenerator {
@@ -81,7 +81,7 @@ public class AbstractFBSTreeGenerator extends TreeGenerator {
 
     @SuppressWarnings("unchecked")
     protected void buildTree(TreeContext context, fast_.Element element) throws Exception {
-            int type = element.type().srcml_kind();
+            int type = element.type().srcmlKind();
             String tokenName = fast_.SrcmlKind.name(type);
 	    String text = element.text();
 	    String tail = element.tail();
