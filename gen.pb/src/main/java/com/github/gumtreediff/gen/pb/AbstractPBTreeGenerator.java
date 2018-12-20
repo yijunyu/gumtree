@@ -66,8 +66,8 @@ public class AbstractPBTreeGenerator extends TreeGenerator {
 
     @SuppressWarnings("unchecked")
     protected void buildTree(TreeContext context, fast.Fast.Element element) throws Exception {
-            int type = element.getKindValue();
-            String tokenName = element.getKind().toString();
+            int type = element.getSrcmlKindValue();
+            String tokenName = element.getSrcmlKind().toString();
 	    String text = element.getText().toStringUtf8();
 	    String tail = element.getTail().toStringUtf8();
 	    int length = text!=null? text.length() : 0;

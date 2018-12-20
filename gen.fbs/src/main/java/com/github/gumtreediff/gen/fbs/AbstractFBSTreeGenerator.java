@@ -81,8 +81,8 @@ public class AbstractFBSTreeGenerator extends TreeGenerator {
 
     @SuppressWarnings("unchecked")
     protected void buildTree(TreeContext context, fast_.Element element) throws Exception {
-            int type = element.type().kind();
-            String tokenName = fast_.Element_.Kind.name(type);
+            int type = element.type().srcml_kind();
+            String tokenName = fast_.SrcmlKind.name(type);
 	    String text = element.text();
 	    String tail = element.tail();
 	    int length = text!=null? text.length() : 0;
