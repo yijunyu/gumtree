@@ -1,5 +1,0 @@
-description = 'GumTree abstract client module.'
-
-dependencies {
-	compile 'org.reflections:reflections:0.9.10'
-}
