@@ -1,0 +1,21 @@
+package:
+  name: gumtree
+  version: "2.1.0"
+
+source:
+  git_url: "https://github.com/yijunyu/gumtree"
+  git_rev: "conda"
+
+extra:
+  channels:
+    - yijunyu
+
+requirements:
+  host:
+    - openjdk
+    - unzip
+
+about:
+  home: "https://github.com/yijunyu/gumtree"
+  license: "GNU Lesser General Public License v3.0"
+  license_file: LICENSE
