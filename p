@@ -12,6 +12,7 @@ unzip -o dist/build/distributions/$gumtree.zip
 #sudo cp gumtree /usr/local/bin
 #gumtree diff DuplicateVirtualMethods.smali DuplicateVirtualMethods.smali 
 #gumtree-20181125-2.1.0-SNAPSHOT/bin/gumtree diff ~/d1_both-v1.c ~/d1_both-v2.c
-fast test/Hello1.java test/Hello1.java.pb
-fast test/Hello2.java test/Hello2.java.pb
-$gumtree/bin/gumtree diff test/Hello1.java.pb test/Hello2.java.pb
+#fast test/Hello1.java test/Hello1.java.pb
+#fast test/Hello2.java test/Hello2.java.pb
+#$gumtree/bin/gumtree diff test/Hello1.java.pb test/Hello2.java.pb
+#$gumtree/bin/gumtree diff test/Hello1.java test/Hello2.java
