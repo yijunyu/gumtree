@@ -1,0 +1,1071 @@
+syntax="proto3";
+package fast;
+enum Python3Kind {
+	single_input = 0;
+	file_input = 1;
+	eval_input = 2;
+	decorator = 3;
+	decorators = 4;
+	decorated = 5;
+	async_funcdef = 6;
+	funcdef = 7;
+	parameters = 8;
+	typedargslist = 9;
+	tfpdef = 10;
+	varargslist = 11;
+	vfpdef = 12;
+	stmt = 13;
+	simple_stmt = 14;
+	small_stmt = 15;
+	expr_stmt = 16;
+	annassign = 17;
+	testlist_star_expr = 18;
+	augassign = 19;
+	del_stmt = 20;
+	pass_stmt = 21;
+	flow_stmt = 22;
+	break_stmt = 23;
+	continue_stmt = 24;
+	return_stmt = 25;
+	yield_stmt = 26;
+	raise_stmt = 27;
+	import_stmt = 28;
+	import_name = 29;
+	import_from = 30;
+	import_as_name = 31;
+	dotted_as_name = 32;
+	import_as_names = 33;
+	dotted_as_names = 34;
+	dotted_name = 35;
+	global_stmt = 36;
+	nonlocal_stmt = 37;
+	assert_stmt = 38;
+	compound_stmt = 39;
+	async_stmt = 40;
+	if_stmt = 41;
+	while_stmt = 42;
+	for_stmt = 43;
+	try_stmt = 44;
+	with_stmt = 45;
+	with_item = 46;
+	except_clause = 47;
+	suite = 48;
+	test = 49;
+	test_nocond = 50;
+	lambdef = 51;
+	lambdef_nocond = 52;
+	or_test = 53;
+	and_test = 54;
+	not_test = 55;
+	comparison = 56;
+	comp_op = 57;
+	star_expr = 58;
+	expr = 59;
+	xor_expr = 60;
+	and_expr = 61;
+	shift_expr = 62;
+	arith_expr = 63;
+	term = 64;
+	factor = 65;
+	power = 66;
+	atom_expr = 67;
+	atom = 68;
+	testlist_comp = 69;
+	trailer = 70;
+	subscriptlist = 71;
+	subscript = 72;
+	sliceop = 73;
+	exprlist = 74;
+	testlist = 75;
+	dictorsetmaker = 76;
+	classdef = 77;
+	arglist = 78;
+	argument = 79;
+	comp_iter = 80;
+	comp_for = 81;
+	comp_if = 82;
+	encoding_decl = 83;
+	yield_expr = 84;
+	yield_arg = 85;
+}
+enum SmaliKind {
+	smali_file = 0;
+	class_spec = 1;
+	super_spec = 2;
+	implements_spec = 3;
+	source_spec = 4;
+	access_list = 5;
+	field = 6;
+	method = 7;
+	statements_and_directives = 8;
+	ordered_method_item = 9;
+	registers_directive = 10;
+	param_list_or_id = 11;
+	simple_name = 12;
+	member_name = 13;
+	method_prototype = 14;
+	param_list_or_id_primitive_type = 15;
+	param_list = 16;
+	array_descriptor = 17;
+	type_descriptor = 18;
+	nonvoid_type_descriptor = 19;
+	reference_type_descriptor = 20;
+	integer_literal = 21;
+	float_literal = 22;
+	double_literal = 23;
+	literal = 24;
+	parsed_integer_literal = 25;
+	integral_literal = 26;
+	fixed_32bit_literal = 27;
+	fixed_literal = 28;
+	array_literal = 29;
+	annotation_element = 30;
+	annotation = 31;
+	subannotation = 32;
+	enum_literal = 33;
+	type_field_method_literal = 34;
+	method_reference = 35;
+	field_reference = 36;
+	label = 37;
+	label_ref = 38;
+	register_list = 39;
+	register_range = 40;
+	verification_error_reference = 41;
+	catch_directive = 42;
+	catchall_directive = 43;
+	parameter_directive = 44;
+	debug_directive = 45;
+	line_directive = 46;
+	local_directive = 47;
+	end_local_directive = 48;
+	restart_local_directive = 49;
+	prologue_directive = 50;
+	epilogue_directive = 51;
+	source_directive = 52;
+	instruction_format12x = 53;
+	instruction_format22s = 54;
+	instruction_format31i = 55;
+	instruction = 56;
+	insn_format10t = 57;
+	insn_format10x = 58;
+	insn_format10x_odex = 59;
+	insn_format11n = 60;
+	insn_format11x = 61;
+	insn_format12x = 62;
+	insn_format20bc = 63;
+	insn_format20t = 64;
+	insn_format21c_field = 65;
+	insn_format21c_field_odex = 66;
+	insn_format21c_string = 67;
+	insn_format21c_type = 68;
+	insn_format21ih = 69;
+	insn_format21lh = 70;
+	insn_format21s = 71;
+	insn_format21t = 72;
+	insn_format22b = 73;
+	insn_format22c_field = 74;
+	insn_format22c_field_odex = 75;
+	insn_format22c_type = 76;
+	insn_format22cs_field = 77;
+	insn_format22s = 78;
+	insn_format22t = 79;
+	insn_format22x = 80;
+	insn_format23x = 81;
+	insn_format30t = 82;
+	insn_format31c = 83;
+	insn_format31i = 84;
+	insn_format31t = 85;
+	insn_format32x = 86;
+	insn_format35c_method = 87;
+	insn_format35c_type = 88;
+	insn_format35c_method_odex = 89;
+	insn_format35mi_method = 90;
+	insn_format35ms_method = 91;
+	insn_format3rc_method = 92;
+	insn_format3rc_method_odex = 93;
+	insn_format3rc_type = 94;
+	insn_format3rmi_method = 95;
+	insn_format3rms_method = 96;
+	insn_format45cc_method = 97;
+	insn_format4rcc_method = 98;
+	insn_format51l = 99;
+	insn_array_data_directive = 100;
+	insn_packed_switch_directive = 101;
+	insn_sparse_switch_directive = 102;
+}
+enum SolidityKind {
+	sourceunit = 0;
+	pragmadirective = 1;
+	pragmaname = 2;
+	pragmavalue = 3;
+	version = 4;
+	versionoperator = 5;
+	versionconstraint = 6;
+	importdeclaration = 7;
+	importdirective = 8;
+	contractdefinition = 9;
+	inheritancespecifier = 10;
+	contractpart = 11;
+	statevariabledeclaration = 12;
+	usingfordeclaration = 13;
+	structdefinition = 14;
+	modifierdefinition = 15;
+	modifierinvocation = 16;
+	functiondefinition = 17;
+	returnparameters = 18;
+	modifierlist = 19;
+	eventdefinition = 20;
+	enumvalue = 21;
+	enumdefinition = 22;
+	indexedparameterlist = 23;
+	indexedparameter = 24;
+	parameterlist = 25;
+	parameter = 26;
+	typenamelist = 27;
+	unnamedparameter = 28;
+	variabledeclaration = 29;
+	typename = 30;
+	userdefinedtypename = 31;
+	mapping = 32;
+	functiontypename = 33;
+	storagelocation = 34;
+	statemutability = 35;
+	block = 36;
+	statement = 37;
+	expressionstatement = 38;
+	ifstatement = 39;
+	whilestatement = 40;
+	simplestatement = 41;
+	forstatement = 42;
+	inlineassemblystatement = 43;
+	dowhilestatement = 44;
+	continuestatement = 45;
+	breakstatement = 46;
+	returnstatement = 47;
+	throwstatement = 48;
+	variabledeclarationstatement = 49;
+	identifierlist = 50;
+	elementarytypename = 51;
+	expression = 52;
+	primaryexpression = 53;
+	expressionlist = 54;
+	namevaluelist = 55;
+	namevalue = 56;
+	functioncallarguments = 57;
+	assemblyblock = 58;
+	assemblyitem = 59;
+	assemblyexpression = 60;
+	assemblycall = 61;
+	assemblylocaldefinition = 62;
+	assemblyassignment = 63;
+	assemblyidentifierorlist = 64;
+	assemblyidentifierlist = 65;
+	assemblyrightassignment = 66;
+	labeldefinition = 67;
+	assemblyswitch = 68;
+	assemblycase = 69;
+	assemblyfunctiondefinition = 70;
+	assemblyfor = 71;
+	assemblyliteral = 72;
+	subassembly = 73;
+	datasize = 74;
+	linkersymbol = 75;
+	tupleexpression = 76;
+	elementarytypenameexpression = 77;
+	numberliteral = 78;
+	identifier = 79;
+}
+enum SrcmlKind {
+UNIT_KIND = 0;
+DECL = 1;
+DECL_STMT = 2;
+INIT = 3;
+EXPR = 4;
+EXPR_STMT = 5;
+COMMENT = 6;
+CALL = 7;
+CONTROL =  8;
+INCR =  9;
+    NONE = 10;
+ VARIABLE = 11;
+ FUNCTION = 12;
+ FUNCTION_DECL = 13;
+ CONSTRUCTOR = 14;
+ CONSTRUCTOR_DECL = 15;
+ DESTRUCTOR = 16;
+ DESTRUCTOR_DECL = 17;
+    MACRO = 18;
+    SINGLE_MACRO = 19;
+ NULLOPERATOR = 20;
+ ENUM_DEFN = 21;
+ ENUM_DECL = 22;
+ GLOBAL_ATTRIBUTE = 23;
+ PROPERTY_ACCESSOR = 24;
+ PROPERTY_ACCESSOR_DECL = 25;
+    EXPRESSION = 26;
+ CLASS_DEFN = 27;
+ CLASS_DECL = 28;
+ UNION_DEFN = 29;
+ UNION_DECL = 30;
+ STRUCT_DEFN = 31;
+ STRUCT_DECL = 32;
+ INTERFACE_DEFN = 33;
+ INTERFACE_DECL = 34;
+ ACCESS_REGION = 35;
+    USING = 36;
+ OPERATOR_FUNCTION = 37;
+ OPERATOR_FUNCTION_DECL = 38;
+ EVENT = 39;
+ PROPERTY = 40;
+ ANNOTATION_DEFN = 41;
+ GLOBAL_TEMPLATE = 42;
+    // entire source file
+     UNIT = 43;
+    // First token used for boundary
+     TART_ELEMENT_TOKEN = 44;
+    // No output at all.  Only a placeholder
+     NOP = 45;
+    // literal types
+     STRING = 46;        // string marked by double quotes
+     CHAR = 47;          // string or char marked by single quotes
+     LITERAL = 48;       // literal number, constant
+     BOOLEAN = 49;       // boolean literal, i.e., true, false
+     NULL2 = 50;          // null types null, nullptr
+     COMPLEX = 51;       // complex numbers
+    // operators
+     OPERATOR = 52;
+    // type modifiers
+     MODIFIER = 53;
+    // internal statement elements used in multiple statements
+     NAME = 54;
+     ONAME = 55;
+     CNAME = 56;
+     TYPE = 57;
+     TYPEPREV = 58;
+	 CONDITION = 59;
+	 BLOCK = 60;
+     PSEUDO_BLOCK = 61;
+     INDEX = 62;
+    // statements
+	 ENUM = 63;
+     ENUM_DECLARATION = 64;
+	 IF_STATEMENT = 65;
+     TERNARY = 66;
+	 THEN = 67;
+	 ELSE = 68;
+	 ELSEIF = 69;
+     WHILE_STATEMENT = 70;
+	 DO_STATEMENT = 71;
+	 FOR_STATEMENT = 72;
+	 FOREACH_STATEMENT = 73;
+     FOR_CONTROL = 74;
+	 FOR_INITIALIZATION = 75;
+	 FOR_CONDITION = 76;
+	 FOR_INCREMENT = 77;
+     FOR_LIKE_CONTROL = 78;
+	 EXPRESSION_STATEMENT = 79;
+	 // EXPRESSION = 80;
+	 FUNCTION_CALL = 81;
+	 DECLARATION_STATEMENT = 82;
+	 DECLARATION = 83;
+	 DECLARATION_INITIALIZATION = 84;
+	 DECLARATION_RANGE = 85;
+	 RANGE = 86;
+	 GOTO_STATEMENT = 87;
+	 CONTINUE_STATEMENT = 88;
+	 BREAK_STATEMENT = 89;
+	 LABEL_STATEMENT = 90;
+	 LABEL = 91;
+	 SWITCH = 92;
+	 CASE = 93;
+	 DEFAULT = 94;
+    // functions
+     FUNCTION_DEFINITION = 95;
+	 FUNCTION_DECLARATION = 96;
+     LAMBDA = 97;
+     FUNCTION_LAMBDA = 98;
+	 FUNCTION_SPECIFIER = 99;
+	 RETURN_STATEMENT = 100;
+	 PARAMETER_LIST = 101;
+	 PARAMETER = 102;
+	 KRPARAMETER_LIST = 103;
+	 KRPARAMETER = 104;
+	 ARGUMENT_LIST = 105;
+	 ARGUMENT = 106;
+     PSEUDO_PARAMETER_LIST = 107;
+     INDEXER_PARAMETER_LIST = 108;
+    // class, struct, union
+	 CLASS = 109;
+	 CLASS_DECLARATION = 110;
+	 STRUCT = 111;
+	 STRUCT_DECLARATION = 112;
+	 UNION = 113;
+	 UNION_DECLARATION = 114;
+	 DERIVATION_LIST = 115;
+	 PUBLIC_ACCESS = 116;
+	 PUBLIC_ACCESS_DEFAULT = 117;
+	 PRIVATE_ACCESS = 118;
+	 PRIVATE_ACCESS_DEFAULT = 119;
+	 PROTECTED_ACCESS = 120;
+     PROTECTED_ACCESS_DEFAULT = 121;
+     MEMBER_INIT_LIST = 122;
+     MEMBER_INITIALIZATION_LIST = 123;
+     MEMBER_INITIALIZATION = 124;
+	 CONSTRUCTOR_DEFINITION = 125;
+	 CONSTRUCTOR_DECLARATION = 126;
+	 DESTRUCTOR_DEFINITION = 127;
+	 DESTRUCTOR_DECLARATION = 128;
+	 FRIEND = 129;
+	 CLASS_SPECIFIER = 130;
+    // exception handling
+	 TRY_BLOCK = 131;
+	 CATCH_BLOCK = 132;
+	 FINALLY_BLOCK = 133;
+	 THROW_STATEMENT = 134;
+	 THROW_SPECIFIER = 135;
+	 THROW_SPECIFIER_JAVA = 136;
+	 TEMPLATE = 137;
+     GENERIC_ARGUMENT = 138;
+     GENERIC_ARGUMENT_LIST = 139;
+     TEMPLATE_PARAMETER = 140;
+     TEMPLATE_PARAMETER_LIST = 141;
+     GENERIC_PARAMETER = 142;
+     GENERIC_PARAMETER_LIST = 143;
+    // C Family elements
+	 TYPEDEF = 144;
+	 ASM = 145;
+	 MACRO_CALL = 146;
+	 SIZEOF_CALL = 147;
+     EXTERN = 148;
+	 NAMESPACE = 149;
+	 USING_DIRECTIVE = 150;
+	 DIRECTIVE = 151;
+    // C
+     ATOMIC = 152;
+     STATIC_ASSERT_STATEMENT = 153;
+     GENERIC_SELECTION = 154;
+     GENERIC_SELECTOR = 155;
+     GENERIC_ASSOCIATION_LIST = 156;
+     GENERIC_ASSOCIATION = 157;
+    // C++
+     ALIGNAS = 158;
+     DECLTYPE = 159;
+     CAPTURE = 160;
+     LAMBDA_CAPTURE = 161;
+     NOEXCEPT = 162;
+     TYPENAME = 163;
+     ALIGNOF = 164;
+     TYPEID = 165;
+     SIZEOF_PACK = 166;
+     ENUM_CLASS = 167;
+     ENUM_CLASS_DECLARATION = 168;
+     // OPERATOR_FUNCTION = 169;
+     // OPERATOR_FUNCTION_DECL = 170;
+     REF_QUALIFIER = 171;
+    // Qt
+	 SIGNAL_ACCESS = 172;
+     FOREVER_STATEMENT = 173;
+     EMIT_STATEMENT = 174;
+    // cpp directive internal elements
+	 CPP_DIRECTIVE = 175;
+     CPP_FILENAME = 176;
+     FILE = 177;
+     NUMBER = 178;
+     CPP_NUMBER = 179;
+     CPP_LITERAL = 180;
+	 CPP_MACRO_DEFN = 181;
+	 CPP_MACRO_VALUE = 182;
+    // cpp directives
+	 ERROR = 183;
+	 CPP_ERROR = 184;
+     CPP_WARNING = 185;
+	 CPP_PRAGMA = 186;
+	 CPP_INCLUDE = 187;
+	 CPP_DEFINE = 188;
+	 CPP_UNDEF = 189;
+	 CPP_LINE = 190;
+	 CPP_IF = 191;
+	 CPP_IFDEF = 192;
+	 CPP_IFNDEF = 193;
+	 CPP_THEN = 194;
+	 CPP_ELSE = 195;
+	 CPP_ELIF = 196;
+     CPP_EMPTY = 197;
+    // C# cpp directives
+     CPP_REGION = 198;
+     CPP_ENDREGION = 199;
+     USING_STMT = 200;
+     ESCAPE = 201;
+    // Objective-C cpp directives
+     VALUE = 202;
+     CPP_IMPORT = 203;
+    // This HAS to mark the end of the CPP directives
+	 CPP_ENDIF = 204;
+    // Debug elements
+     MARKER = 205;
+     ERROR_PARSE = 206;
+     ERROR_MODE = 207;
+    // Java elements
+     IMPLEMENTS = 208;
+     EXTENDS = 209;
+     IMPORT = 210;
+     PACKAGE = 211;
+     ASSERT_STATEMENT = 212;
+     INTERFACE = 213;
+     INTERFACE_DECLARATION = 214;
+     SYNCHRONIZED_STATEMENT = 215;
+     ANNOTATION = 216;
+     // ANNOTATION_DEFN = 217;
+     STATIC_BLOCK = 218;
+    // C#
+     CHECKED_STATEMENT = 219;
+     UNCHECKED_STATEMENT = 220;
+     ATTRIBUTE = 221;
+     TARGET = 222;
+     UNSAFE_STATEMENT = 223;
+     LOCK_STATEMENT = 224;
+     FIXED_STATEMENT = 225;
+     TYPEOF = 226;
+     USING_STATEMENT = 227;
+     FUNCTION_DELEGATE = 228;
+     // EVENT = 229;
+     CONSTRAINT = 230;
+    // linq
+     LINQ = 231;
+     FROM = 232;
+     WHERE = 233;
+     SELECT = 234;
+     LET = 235;
+     ORDERBY = 236;
+     JOIN = 237;
+     GROUP = 238;
+     IN = 239;
+     ON = 240;
+     EQUALS = 241;
+     BY = 242;
+     INTO = 243;
+    // misc
+     EMPTY = 244;  // empty statement
+     EMPTY_STMT = 245;  // empty statement
+    // Objective-C
+     RECEIVER = 246;
+     MESSAGE = 247;
+     SELECTOR = 248;
+     PROTOCOL_LIST = 249;
+     CATEGORY = 250;
+     PROTOCOL = 251;
+     REQUIRED_DEFAULT = 252;
+     REQUIRED = 253;
+     OPTIONAL = 254;
+     // PROPERTY = 255;
+     ATTRIBUTE_LIST = 256;
+     SYNTHESIZE = 257;
+     DYNAMIC = 258;
+     ENCODE = 259;
+     AUTORELEASEPOOL = 260;
+     COMPATIBILITY_ALIAS = 261;
+     NIL = 262;
+     CLASS_INTERFACE = 263;
+     CLASS_IMPLEMENTATION = 264;
+     PROTOCOL_DECLARATION = 265;
+    // casting
+     CAST = 266;
+     CONST_CAST = 267;
+     DYNAMIC_CAST = 268;
+     REINTERPRET_CAST = 269;
+     STATIC_CAST = 270;
+    // srcMLOutput used only
+     POSITION = 271;
+    // Other
+     CUDA_ARGUMENT_LIST = 272;
+    // OpenMP
+     OMP_DIRECTIVE = 273;
+     OMP_NAME = 274;
+     OMP_CLAUSE = 275;
+     OMP_ARGUMENT_LIST = 276;
+     OMP_ARGUMENT = 277;
+     OMP_EXPRESSION = 278;
+    // Last token used for boundary
+    END_ELEMENT_TOKEN = 279;
+    // special identifier
+    MAIN = 280;
+    // statements
+    BREAK = 281;
+	CONTINUE = 282;
+    WHILE = 283;
+	DO = 284;
+	FOR = 285;
+    IF = 286;
+    // ELSE = 287;
+	// SWITCH = 288;
+	// CASE = 289;
+	// DEFAULT = 290;
+	// ENUM = 291;
+    // C Family
+	// TYPEDEF = 292;
+	GOTO = 293;
+    // ASM = 294;
+    VISUAL_CXX_ASM = 295;
+    SIZEOF = 296;
+    // EXTERN = 297;
+    AUTO = 298;
+    // C
+    REGISTER = 299;
+    RESTRICT = 300;
+    // ATOMIC = 301;
+    // COMPLEX = 302;
+    // GENERIC_SELECTION = 303;
+    IMAGINARY = 304;
+    NORETURN = 305;
+    STATIC_ASSERT = 306;
+    // Combined C/C++
+    CRESTRICT = 307;
+    CXX_TRY = 308;
+    CXX_CATCH = 309;
+    CXX_CLASS = 310;
+    // C++
+    CONSTEXPR = 311;
+    // NOEXCEPT = 312;
+    THREAD_LOCAL = 313;
+    NULLPTR = 314;
+    // DECLTYPE = 315;
+    // ALIGNAS = 316;
+    // TYPENAME = 317;
+    // ALIGNOF = 318;
+    // TYPEID = 319;
+    // CONST_CAST = 320;
+    // DYNAMIC_CAST = 321;
+    // REINTERPRET_CAST = 322;
+    // STATIC_CAST = 323;
+    // aggregate types
+    // UNION = 324;
+	// STRUCT = 325;
+    // types
+    VOID = 326;
+    // functions
+	RETURN = 327;
+    // cpp
+    INCLUDE = 328;
+	DEFINE = 329;
+	ELIF = 330;
+    ENDIF = 331;
+    ERRORPREC = 332;
+    WARNING = 333;
+	IFDEF = 334;
+	IFNDEF = 335;
+    LINE = 336;
+	PRAGMA = 337;
+	UNDEF = 338;
+	INLINE = 339;
+    // macro
+    MACRO_TYPE_NAME = 340;
+    MACRO_CASE = 341;
+    MACRO_LABEL = 342;
+    // MACRO_SPECIFIER = 343;
+    SPECIFIER = 344;
+    // specifiers that are not needed for parsing
+    // exception handling
+	TRY = 345;
+	CATCH = 346;
+	THROW = 347;
+    THROWS = 348;
+    // class
+    // CLASS = 349;
+	PUBLIC = 350;
+	PRIVATE = 351;
+	PROTECTED = 352;
+    VIRTUAL = 353;
+	// FRIEND = 354;
+	// OPERATOR = 355;
+    EXPLICIT = 356;
+    // Qt
+    FOREVER = 357;
+    SIGNAL = 358;
+    EMIT = 359;
+    // namespaces
+	// NAMESPACE = 360;
+	// USING = 361;
+    // templates
+	// TEMPLATE = 362;
+    NEW = 363;
+    DELETE = 364;
+    // specifiers
+    STATIC = 365;
+    CONST = 366;
+    MUTABLE = 367;
+    VOLATILE = 368;
+    TRANSIENT = 369;
+    // Java tokens
+    // IMPORT = 370;
+    // PACKAGE = 371;
+    FINALLY = 372;
+    // EXTENDS = 373;
+    // IMPLEMENTS = 374;
+    // INTERFACE = 375;
+    FINAL = 376;
+    ABSTRACT = 377;
+    SUPER = 378;
+    SYNCHRONIZED = 379;
+    NATIVE = 380;
+    STRICTFP = 381;
+    NULLLITERAL = 382;
+    ASSERT = 383;
+    // C# tokens
+    FOREACH = 384;
+    REF = 385;
+    OUT = 386;
+    // IN = 387;
+    LOCK = 388;
+    IS = 389;
+    INTERNAL = 390;
+    SEALED = 391;
+    OVERRIDE = 392;
+    IMPLICIT = 393;
+    STACKALLOC = 394;
+    AS = 395;
+    DELEGATE = 396;
+    FIXED = 397;
+    CHECKED = 398;
+    UNCHECKED = 399;
+    REGION = 400;
+    ENDREGION = 401;
+    UNSAFE = 402;
+    READONLY = 403;
+    GET = 404;
+    SET = 405;
+    ADD = 406;
+    REMOVE = 407;
+    YIELD = 408;
+    PARTIAL = 409;
+    AWAIT = 410;
+    // EVENT = 411;
+    ASYNC = 412;
+    THIS = 413;
+    PARAMS = 414;
+    // TYPEOF = 415;
+    ALIAS = 416;
+    // linq
+    // FROM = 417;
+    // WHERE = 418;
+    // SELECT = 419;
+    // LET = 420;
+    // ORDERBY = 421;
+    ASCENDING = 422;
+    DESCENDING = 423;
+    // GROUP = 424;
+    // BY = 425;
+    // JOIN = 426;
+    // ON = 427;
+    // EQUALS = 428;
+    // INTO = 429;
+    // Objective-C
+    ATINTERFACE = 430;
+    ATIMPLEMENTATION = 431;
+    ATEND = 432;
+    ATPROTOCOL = 433;
+    ATREQUIRED = 434;
+    ATOPTIONAL = 435;
+    // PROPERTY = 436;
+    // SYNTHESIZE = 437;
+    // DYNAMIC = 438;
+    // ENCODE = 439;
+    // SELECTOR = 440;
+    ATCLASS = 441;
+    // Apple
+    // BLOCK = 442;
+    WEAK = 443;
+    STRONG = 444;
+    // AUTORELEASEPOOL = 445;
+    // COMPATIBILITY_ALIAS = 446;
+    // NIL = 447;
+    // OpenMp
+    OMP_OMP = 448;
+    SPECIAL_CHARS = 449;
+    // SLICE_DEFINE
+    SLICE_DEFINE = 450;
+    // SLICE_USE
+    SLICE_USE = 451;
+}
+// smali generated by ANTLR4-CPP
+message Element {
+// srcML
+   oneof type {
+// default to srcML
+      SrcmlKind srcml_kind = 1; 
+      SmaliKind smali_kind = 2;
+      Python3Kind python3_kind = 3;
+      SolidityKind solidity_kind = 4;
+   }
+   bytes text = 5;
+   int32 pos = 6;
+   int32 length = 7;
+   repeated Element child = 8;
+   bytes tail = 9;
+   oneof extra {
+     Unit unit = 10;
+     Literal literal = 11;
+   }
+   message Unit {
+enum LanguageType {
+DUMMY = 0;
+ALL = 1;
+OO = 2;
+CXX = 3;
+C = 4;
+C_FAMILY = 5;
+JAVA = 6;
+CSHARP = 7;
+OBJECTIVE_C = 8;
+}
+   	string filename = 1;
+   	string revision = 2;
+	LanguageType language = 3;
+	int32 item = 4;
+   }
+   message Literal {
+enum LiteralType {
+dummy_type = 0;
+number_type = 1;
+char_type = 2;
+string_type = 3;
+boolean_type = 4;
+null_type = 5;
+}
+   	LiteralType type = 1;
+   }
+   int32 line = 12;
+   int32 column = 13;
+   float label = 14;
+   enum DiffType {
+	    MATCHED = 0; // matched, denoted by empty
+	    ADDED = 1; // added, denoted by +
+	    DELETED = 2; // deleted, denoted by -
+	    CHANGED_FROM = 3; // changed from, denoted by -+
+	    CHANGED_TO = 4; // changed to, denoted by +-
+   }
+   DiffType change = 15;
+   bool keep = 16;
+   int32 id = 17;
+}
+message Delta {
+   string src = 1;
+   string dst = 2;
+   repeated Diff diff = 3;
+   message Diff {
+	enum DeltaType {
+	    MATCH = 0;
+	    ADD = 1;
+	    DEL = 2;
+	    MOVE = 3;
+	    UPDATE = 4;
+        }
+	DeltaType type = 1;
+   	oneof delta {
+		Match match = 2;
+		Add add = 3;
+		Del del = 4;
+		Move move = 5;
+		Update update = 6;
+	}
+	message Match {
+		int32 src = 1;
+		int32 dst = 2;
+	}
+	message Add {
+		int32 src = 1;
+		int32 dst = 2;
+		int32 position = 3;
+	}
+	message Del {
+		int32 src = 1;
+	}
+	message Move {
+		int32 src = 1;
+		int32 dst = 2;
+		int32 position = 3;
+	}
+	message Update {
+		int32 src = 1;
+		int32 dst = 2;
+	}
+   }
+}
+message Pairs {
+   message Pair {
+	enum CloneType {
+	  MAYBE = 0;
+	  YES = 1;
+	  NO = 2;
+	}
+	Diff left = 1;
+	Diff right = 2;
+	CloneType type = 3;
+	message Diff {
+		string project = 1;
+		int32 left_line = 2;
+		int32 left_column = 3;
+		int32 right_line = 4;
+		int32 right_column = 5;
+		Element old_code = 6;
+		Element new_code = 7;
+		string hash = 8;
+		Slices slices = 9;
+	}
+   } 
+   repeated Pair pair = 1;
+}
+message Log {
+	message Commit {
+string id = 1;
+bytes msg = 2;
+bytes author_name = 3;
+bytes author_email = 4;
+int64 author_time = 5;
+bytes committer_name = 6;
+bytes committer_email = 7;
+int64 committer_time = 8;
+message Diff {
+string a = 1;
+string b = 2;
+bool is_new = 3;
+string is_code = 4;
+string index_from = 5;
+string index_to = 6;
+string mode = 7;
+message Hunk {
+int32 from_lineno = 1;
+int32 from_column = 2;
+int32 to_lineno = 3;
+int32 to_column = 4;
+string context = 5;
+message ModLine {
+bytes line = 1;
+bool is_add = 2;
+bool is_del = 3;
+}
+repeated Element element = 6;
+repeated Graph graph = 7;
+repeated ModLine mod = 8;
+Slices slice = 9;
+}
+repeated Hunk hunk = 8;
+}
+repeated Diff diff = 9;
+Slices slice = 10;
+	}
+	message Author {
+	int32 id = 1;
+	bytes name = 2;
+	string email = 3;
+	}
+	repeated Commit commit = 1;
+	repeated Author author = 2;
+}
+message Slices {
+    message Slice {
+	enum ChangeType {
+		UNCHANGED = 0;
+		ADD = 1;
+		DEL = 2;
+	}
+	message SourceFile {
+		message Function {
+			message Variable {
+				message Position {
+					string location = 1;
+					ChangeType type = 2;
+					string delta_location = 5;
+				}
+				message FunctionDecl {
+					string name = 1;
+					string location = 2;
+				}
+				string name = 1;
+				Position pos = 2;
+				ChangeType type = 3;
+				repeated Position defn = 4;
+				repeated Position use = 5;
+				repeated string dvar = 6;
+				repeated string alias = 7;
+				repeated FunctionDecl cfunc = 8;
+			}
+			repeated Variable variable = 1;
+			string name = 2;
+			ChangeType type = 3;
+		}
+		repeated Function function = 1;
+		string name = 2;
+		ChangeType type = 3;
+	}
+	repeated SourceFile file = 1;
+	string hash = 2;
+      }
+      repeated Slice slice = 1;
+}
+message Bugs {
+      message Bug {
+        message Info {
+		bytes summary = 1;
+		bytes description = 2;
+	}
+	bytes id = 1;
+	bytes opendate = 2;
+	bytes fixdate = 3;
+	Info buginfo = 4;
+	repeated bytes fixed_file = 5;
+      }
+      string repository = 1;
+      repeated Bug bug = 2;
+}
+message Graph {
+  message Edge {
+	int32 node1 = 1;
+	int32 node2 = 2;
+  }
+  message NodeLabel {
+	int32 node = 1;
+	string label = 2;
+  }
+  message NodeType {
+	int32 node = 1;
+	string type = 2;
+  }
+  message ContextEdges {
+	repeated Edge nextToken = 1;  
+	repeated Edge child = 2;
+	repeated Edge lastLexicalUse = 3;
+	repeated Edge lastUse = 4;
+	repeated Edge lastWrite = 5;
+	repeated Edge returnsTo = 6;
+	repeated Edge computesFrom = 7;
+  }
+  message ContextGraph {
+	  ContextEdges edges = 1;
+	  repeated NodeLabel nodeLabel = 2;
+	  repeated NodeType nodeType = 3;
+  }
+  message SymbolCandidate {
+	int32 symbolDummyNode = 1;
+	string symbolName = 2;
+	bool isCorrect = 3;
+  }
+  message Unit {
+	string filename = 1;
+	int32 slotTokenIdx = 2;
+	ContextGraph graph = 3;
+	int32 SlotDummyNode = 4;
+	repeated SymbolCandidate symbolCandidate = 5;
+  }
+  repeated Unit unit = 1;
+}
+message Data {
+ oneof RecordType {
+	Element element = 1;
+	Log log = 2;
+	Delta delta = 3;
+	Pairs pairs = 4;
+	Slices slices = 5;
+	Bugs bugs = 6;
+	Graph graph = 7;
+ }
+}

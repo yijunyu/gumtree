@@ -5,9 +5,18 @@ if [ ! -d gen.antlr3-smali ]; then
 	cd !$
 	gradle build -x test -x checkstyleMain
 fi
+cp /usr/local/share/fast.proto .
+rm -rf core/src/main/java/fast*
+protoc -I=. --java_out=core/src/main/java fast.proto
+flatc --proto fast.proto
+sed -i -e 's/namespace fast/namespace fast_/g' fast.fbs
+sed -i -e 's/fast\./fast_./g' fast.fbs
+sed -i -e 's/\[ubyte\]/string/g' fast.fbs
+flatc --java -o core/src/main/java fast.fbs
 gradle build -x test -x checkstyleMain
 gumtree=gumtree-$(date '+%Y%m%d')-2.1.0-SNAPSHOT
-unzip -o dist/build/distributions/$gumtree.zip
+cp dist/build/distributions/$gumtree.zip gumtree.zip
+unzip -o gumtree.zip
 #sudo cp -r $gumtree/* /usr/local/
 #sudo cp gumtree /usr/local/bin
 #gumtree diff DuplicateVirtualMethods.smali DuplicateVirtualMethods.smali 

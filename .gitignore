@@ -10,3 +10,12 @@ samples/
 .gradle/
 build/
 .vagrant/
+Hello1.pb
+Hello2.pb
+fast.fbs
+*-e
+core/src/main/java/fast/*
+core/src/main/java/fast_/*
+*.java.pb
+*-diff.pb
+gumtree-*-2.1.0-SNAPSHOT/*
