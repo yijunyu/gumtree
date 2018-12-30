@@ -4,7 +4,6 @@ package:
 
 source:
   git_url: "https://github.com/yijunyu/gumtree"
-  git_rev: "master"
 
 extra:
   channels:
