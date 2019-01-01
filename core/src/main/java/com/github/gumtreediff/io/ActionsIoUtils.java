@@ -161,6 +161,8 @@ public final class ActionsIoUtils {
                         }
                     }
                     pbToMap(dst_map, dst_unit);
+                } else {
+                    System.out.println("Check why the dst is not loaded: " + context.root);
                 }
             }
             ActionFormatter fmt = newFormatter(context, writer);
