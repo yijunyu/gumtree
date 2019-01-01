@@ -11,8 +11,9 @@ if [ ! -d $gumtree/lib/ ]; then
 	unzip dist/build/distributions/$gumtree.zip
 fi
 cp core/build/libs/core-2.1.0-SNAPSHOT.jar $gumtree/lib/
-fast Hello1.java Hello1.pb
-fast Hello2.java Hello2.pb
-$gumtree/bin/gumtree diff Hello1.pb Hello2.pb
+#fast Hello1.java Hello1.pb
+#fast Hello2.java Hello2.pb
+#$gumtree/bin/gumtree diff Hello1.pb Hello2.pb
+$gumtree/bin/gumtree diff temp.iCutSNwC.java.pb temp.L510FdnQ.java.pb
 #$gumtree/bin/gumtree webdiff Hello1.pb Hello2.pb
 cd - > /dev/null
