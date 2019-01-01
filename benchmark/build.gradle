@@ -67,7 +67,6 @@ dependencies {
     compile project(':gen.antlr3-antlr')
     compile project(':gen.antlr3-json')
     compile project(':gen.antlr3-php')
-    compile project(':gen.antlr3-r')
     compile project(':gen.antlr3-xml')
     compile project(':gen.c')
     compile project(':gen.jdt')

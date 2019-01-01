@@ -28,8 +28,8 @@ ext.isRelease = !project.version.endsWith("SNAPSHOT")
 
 subprojects {
 	apply plugin: 'java'
-	sourceCompatibility = '1.8'
-	targetCompatibility = '1.8'
+	sourceCompatibility = 1.8
+	targetCompatibility = 1.8
 
 	apply plugin: 'checkstyle'
 	checkstyle {
